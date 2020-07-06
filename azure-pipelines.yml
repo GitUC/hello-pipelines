@@ -33,7 +33,7 @@ steps:
     projects: '**/WebApi.csproj'
     argument: '--configuration release --output $(Build.ArtifactStagingDirectory)'
     zipAfterPublish: true
-	
+    
 - task: PublishBuildArtifacts@1
   displayName: 'publish artifact'
   inputs:
