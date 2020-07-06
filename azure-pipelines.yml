@@ -25,6 +25,11 @@ steps:
     command: 'test'
     projects: '**/*Tests*.csproj'
 
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'publish package'
+    publishLocation: 'Container'
 - task: AzureRmWebAppDeployment@4
   inputs:
     ConnectionType: 'AzureRM'
