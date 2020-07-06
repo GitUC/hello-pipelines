@@ -35,5 +35,11 @@ namespace WebApi.Controllers
             })
             .ToArray();
         }
+
+        [HttpGet]
+        public IActionResult GetCities()
+        {
+            return Ok("Sydney, Melbourne, Canberra");
+        }
     }
 }
