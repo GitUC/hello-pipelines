@@ -25,19 +25,18 @@ steps:
     command: 'test'
     projects: '**/*Tests*.csproj'
 
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet publish'
+  inputs:
+    command: publish
+	publishWebProject: false
+    projects: '**/WebApi.csproj'
+	argument: '--configuration release --output $(Build.ArtifactStagingDirectory)'
+	zipAfterPublish: true
+	
 - task: PublishBuildArtifacts@1
+  displayName: 'publish artifact'
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     ArtifactName: 'publish package'
-    publishLocation: 'Container'
-- task: AzureRmWebAppDeployment@4
-  inputs:
-    ConnectionType: 'AzureRM'
-    azureSubscription: 'Visual Studio Professional (d384ece2-9634-4fac-a70c-7574b12fc825)'
-    appType: 'webAppLinux'
-    WebAppName: 'cztesthome'
-    deployToSlotOrASE: true
-    ResourceGroupName: 'cz_webapp_rg'
-    SlotName: 'staging'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
-    RuntimeStack: 'DOTNETCORE|Latest'
+    
