@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging;
 namespace WebApi.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("[weatherforecast]")]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
@@ -37,6 +37,7 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
+        [Route("cities")]
         public IActionResult GetCities()
         {
             return Ok("Sydney, Melbourne, Canberra, Hornsby");
