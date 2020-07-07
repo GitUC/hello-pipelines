@@ -42,8 +42,5 @@ steps:
   - task: PublishBuildArtifacts@1
     displayName: 'publish artifact'
     inputs:
-      PathtoPublish: '$(Build.ArtifactStagingDirectory'
+      pathToPublish: '$(Build.ArtifactStagingDirectory'
       ArtifactName: 'czWebApiPackage'
-
-
-     
