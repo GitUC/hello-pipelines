@@ -29,11 +29,11 @@ steps:
       command: publish
       publishWebProject: false
       projects: '**/WebApi.csproj'
-      argument: '--configuration release --output $(Build.ArtifactStagingDirectory)'
+      argument: '--configuration release --output $env:BUILD_ARTIFACTSTAGINGDIRECTORY'
       zipAfterPublish: true
       
   - task: PublishBuildArtifacts@1
     displayName: 'publish artifact'
     inputs:
-      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-      ArtifactName: 'publish package'
+      PathtoPublish: '$env:BUILD_ARTIFACTSTAGINGDIRECTORY'
+      ArtifactName: 'czWebApiPackage'
