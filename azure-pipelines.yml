@@ -7,12 +7,10 @@
 trigger:
   - master
   
-  pool:
+pool:
     vmImage: 'ubuntu-latest'
   
-  container: mcr.microsoft.com/dotnet/core/sdk:3.0
-  
-  steps:
+steps:
   - script: echo Hello, world!
     displayName: 'Run a one-line script'
   
