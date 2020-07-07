@@ -28,13 +28,14 @@ steps:
       command: 'test'
       projects: 'Test*/*Tests*.csproj'
       arguments: '--configuration $(buildConfiguration)'
+    displayName: 'Test task'
   
   - task: DotNetCoreCLI@2
     displayName: 'dotnet publish'
     inputs:
       command: publish
-      publishWebProjects: false
-      projects: '**/*.csproj'
+      publishWebProjects: true
+      projects: 'WebApi/*.csproj'
       arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
       zipAfterPublish: true
 
