@@ -39,7 +39,7 @@ namespace WebApi.Controllers
         [HttpGet]
         public IActionResult GetCities()
         {
-            return Ok("Sydney, Melbourne, Canberra");
+            return Ok("Sydney, Melbourne, Canberra, Hornsby");
         }
     }
 }
