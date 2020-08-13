@@ -12,18 +12,11 @@ pool:
 
 variables:
     buildConfiguration: 'Release'
-    appsettings: 'Endpoint=https://czappconfig.azconfig.io;Id=4shJ-lg-s0:oxiwo9qzbpGfouagXhke;Secret=XGoDfcaB2bamuvReO9Gj+yssxYCuVJaLO2nxUm6luDM='
-
+   
 steps:
   - script: echo Hello, world!
     displayName: 'Run a one-line script'
-
-  - task: DotNetCoreCLI@2
-    inputs:
-      command: 'user-secrets'
-      arguments: 'set ConnectionStrings:AppConfig $(appsettings)'
-    displayName: 'set user secret $(buildConfiguration)'
-  
+    
   - task: DotNetCoreCLI@2
     inputs:
       command: 'build'
